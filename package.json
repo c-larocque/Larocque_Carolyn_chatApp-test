@@ -15,11 +15,14 @@
   "license": "MIT",
   "dependencies": {
     "express": "^4.16.2",
+<<<<<<< HEAD
     "grunt-contrib-sass": "^1.0.0",
     "grunt-contrib-watch": "^1.0.0",
     "socket.io": "^2.0.4"
   },
   "devDependencies": {
+=======
+>>>>>>> 596a74311da6785f4ac0fe7ab061b8a49fb48fbe
     "grunt": "^1.0.1"
   }
 }
