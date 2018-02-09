@@ -3,7 +3,14 @@
 
   let messageList = document.querySelector('ul'),
       chatForm = document.querySelector('form'),
+      nameInput = document.querySelector('.nickname'),
       chatMessage = chatForm.querySelector('.message');
+      nickName = null;
+
+  function setNickname() {
+    nickName = this.value;
+    //debugger
+  }
 
   function appendMessage(msg) {
     //debugger;
@@ -19,9 +26,16 @@
 
   function handleSendMessage(e) {
     e.preventDefault(); // block default behaviour (page refresh)
-    debugger;
+    nickName = (nickName && nickName.length > 0) ? nickName : 'user';
+    mrg = `${nickName} says ${chatMessage.value}`;
+
+    socket.emit('chat message', msg);
+    chatMessage.value = "";
+    return false;
+    //debugger;
   }
 
+  nameInput.addEventListener('change', setNickname, false);
   chatForm.addEventListener('submit', handleSendMessage, false);
   socket.addEventListener('chat message', appendMessage, false);
   socket.addEventListener('disconnect message', appendDiscMessage, false);
